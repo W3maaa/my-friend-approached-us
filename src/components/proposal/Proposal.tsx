@@ -57,42 +57,6 @@ function Reveal({
   );
 }
 
-/* --------------------------- phone-call motif --------------------------- */
-
-function IncomingCall({
-  label = "Unknown Caller",
-  sub = "incoming call",
-  hint,
-}: {
-  label?: string;
-  sub?: string;
-  hint?: string;
-}) {
-  return (
-    <div className="mx-auto w-full max-w-xs rounded-2xl border border-border bg-card/70 p-4 backdrop-blur-sm">
-      <div className="flex items-center gap-3">
-        <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-primary/15">
-          <span className="absolute inset-0 animate-ping rounded-full bg-primary/20" />
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="relative text-primary">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-        <div className="flex-1">
-          <div className="text-sm text-foreground">{label}</div>
-          <div className="text-xs text-muted-foreground">{sub}</div>
-        </div>
-      </div>
-      {hint && <div className="mt-3 text-[11px] text-muted-foreground italic">{hint}</div>}
-    </div>
-  );
-}
-
 /* ------------------------------- sections ------------------------------- */
 
 function Opening({ onBegin }: { onBegin: () => void }) {
@@ -104,7 +68,7 @@ function Opening({ onBegin }: { onBegin: () => void }) {
       <Reveal delay={0.15}>
         <h1 className="mt-6 font-serif text-5xl leading-[1.05] sm:text-7xl">
           {proposal.her},<br />
-          before you continue —
+          before you continue,
         </h1>
       </Reveal>
       <Reveal delay={0.4}>
@@ -124,7 +88,7 @@ function Opening({ onBegin }: { onBegin: () => void }) {
         </button>
       </Reveal>
       <Reveal delay={1}>
-        <div className="mt-16 font-hand text-lg text-primary">— {proposal.him}</div>
+        <div className="mt-16 font-hand text-lg text-primary">from {proposal.him}</div>
       </Reveal>
     </Section>
   );
@@ -132,7 +96,7 @@ function Opening({ onBegin }: { onBegin: () => void }) {
 
 function HowItStarted() {
   const steps = [
-    { n: "01", t: "I saw you.", s: "across the room. that's the whole first step." },
+    { n: "01", t: "I saw you.", s: "outside Naivas. you were waiting for a friend. that is the whole first step." },
     {
       n: "02",
       t: "I was going to come talk to you.",
@@ -140,17 +104,20 @@ function HowItStarted() {
     },
     {
       n: "03",
-      t: "My phone rang.",
-      s: "an important call. the timing was, objectively, criminal.",
-      call: true,
+      t: "Then I froze a little.",
+      s: "I overthought the first line. then the second line. then whether I should even walk over.",
     },
-    { n: "04", t: "I panicked.", s: "quietly. professionally. on the inside." },
+    {
+      n: "04",
+      t: "I panicked, quietly.",
+      s: "on the outside I looked normal. on the inside it was chaos, very organized chaos.",
+    },
     {
       n: "05",
-      t: "So I sent my friend.",
-      s: "shoutout to the man who did the approaching on my behalf. real one.",
+      t: "So I sent Peterson.",
+      s: "shoutout to Peterson, the real MVP who walked over on my behalf like a very underpaid ambassador.",
     },
-    { n: "06", t: "And somehow… it worked.", s: "which is how you ended up here, reading this." },
+    { n: "06", t: "And somehow, it worked.", s: "which is how you ended up here, reading this." },
   ];
 
   return (
@@ -160,7 +127,7 @@ function HowItStarted() {
       </Reveal>
       <Reveal delay={0.1}>
         <h2 className="mt-6 font-serif text-4xl leading-tight sm:text-5xl">
-          Some stories begin perfectly. <span className="text-muted-foreground">Ours…</span>{" "}
+          Some stories begin perfectly. <span className="text-muted-foreground">Ours,</span>{" "}
           <em className="text-primary">didn&apos;t.</em>
         </h2>
       </Reveal>
@@ -173,15 +140,6 @@ function HowItStarted() {
               <div>
                 <div className="font-serif text-2xl leading-snug sm:text-3xl">{step.t}</div>
                 <div className="mt-1 text-sm text-muted-foreground sm:text-base">{step.s}</div>
-                {step.call && (
-                  <div className="mt-5">
-                    <IncomingCall
-                      label="Important Call"
-                      sub="incoming — worst timing imaginable"
-                      hint="delegating approach…"
-                    />
-                  </div>
-                )}
               </div>
             </li>
           </Reveal>
@@ -190,8 +148,8 @@ function HowItStarted() {
 
       <Reveal delay={0.2}>
         <p className="mt-16 text-sm text-muted-foreground italic">
-          special thanks to the friend who had to do the approaching because my phone chose
-          violence.
+          special thanks to Peterson, who did the approaching because I chose to freeze at the
+          worst possible moment.
         </p>
       </Reveal>
     </Section>
@@ -202,7 +160,7 @@ function LittleThings() {
   const bits = [
     "you don't perform around me.",
     "you don't shrink either.",
-    "you're just… you. and it turns out that's the part I like most.",
+    "you are just you. and it turns out that is the part I like most.",
     "you make it easy to stop trying to be someone.",
     "being around you feels quiet in a good way.",
   ];
@@ -239,7 +197,7 @@ function TheFeeling() {
       </Reveal>
       <Reveal delay={0.2}>
         <p className="mt-10 font-serif text-3xl leading-relaxed sm:text-4xl">
-          I don&apos;t have a clean way to say this, so I&apos;ll just say it —
+          I don&apos;t have a clean way to say this, so I&apos;ll just say it.
         </p>
       </Reveal>
       <Reveal delay={0.5}>
@@ -249,7 +207,7 @@ function TheFeeling() {
       </Reveal>
       <Reveal delay={0.9}>
         <p className="mt-8 max-w-lg text-base text-muted-foreground sm:text-lg">
-          not in a dramatic way. more like — I like the version of me that shows up around you. I
+          not in a dramatic way. more like, I like the version of me that shows up around you. I
           didn&apos;t know I was looking for that until it was there.
         </p>
       </Reveal>
@@ -269,30 +227,37 @@ function Letter({ onContinue }: { onContinue: () => void }) {
 
           <div className="mt-6 space-y-5 font-serif text-lg leading-relaxed text-foreground/90 sm:text-xl">
             <p>
-              I&apos;m not going to try to write a perfect version of this. every draft I did in my
-              head sounded like something off the internet, and you deserve better than that.
+              I am not going to try to write a perfect version of this because every version I came
+              up with in my head sounded like something I had copied from somewhere on the
+              internet, and you deserve something that actually sounds like me.
             </p>
             <p>
-              you already know how this whole thing started. I saw you first. I was going to walk
-              over. my phone decided that exact second was a good time to matter. and instead of
-              me, you got my friend — sent in like a very underpaid ambassador.
+              You already know how this whole thing started. I saw you first. I was going to come
+              talk to you, and then my phone decided that was the perfect time to become important.
+              So instead of me coming over, my friend had to do it for me. Basically, I sent him in
+              as my very underpaid ambassador.
+            </p>
+            <p>Honestly, I am glad it happened that way. A smoother beginning probably would not have been ours.</p>
+            <p>But here is what I actually wanted to say.</p>
+            <p>
+              I like you for being you. Not some perfect version of yourself or some version you
+              have to pretend to be. Just you. And I really like who I am when I am with you.
             </p>
             <p>
-              honestly? I&apos;m glad it happened that way. a smoother version of that story
-              probably wouldn&apos;t be ours.
+              There is something about being around you that just feels right. I do not have to try
+              so hard to be anything. I can just be myself. And somehow, being with you makes me
+              feel whole.
             </p>
+            <p>That means more to me than I probably know how to explain.</p>
             <p>
-              here&apos;s the part I actually wanted to say. I like who you are. not a polished
-              version, not a highlight-reel version — you. and I like who I am when I&apos;m next
-              to you. that&apos;s not a small thing to me.
+              I do not want to keep wondering where this could go or keep pretending that I do not
+              feel what I feel. So I thought I would just be honest with you.
             </p>
-            <p>
-              I don&apos;t want to keep quietly wondering where this could go. I&apos;d rather just
-              ask.
-            </p>
+            <p>I really like you, Hawa.</p>
+            <p>And I want to ask you something.</p>
           </div>
 
-          <div className="mt-8 font-hand text-2xl text-primary">— {proposal.him}</div>
+          <div className="mt-8 font-hand text-2xl text-primary">love, {proposal.him}</div>
         </div>
       </Reveal>
 
@@ -321,7 +286,6 @@ function TheQuestion({
   onThink: () => void;
 }) {
   const [stage, setStage] = useState(0);
-  // stages: 0 name, 1 preface, 2 three-lines, 3 the question + buttons
   useEffect(() => {
     if (stage >= 3) return;
     const delays = [1400, 2600, 3800];
@@ -421,7 +385,6 @@ function TheQuestion({
 function Yes({ onReset }: { onReset: () => void }) {
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-background px-6">
-      {/* subtle ember embers — no confetti storm */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {Array.from({ length: 18 }).map((_, i) => (
           <motion.span
@@ -442,14 +405,14 @@ function Yes({ onReset }: { onReset: () => void }) {
       >
         <Kicker>officially a thing</Kicker>
         <h2 className="mt-6 font-serif text-5xl leading-tight sm:text-7xl">
-          so… this is real now.
+          so, this is real now.
         </h2>
         <p className="mt-8 font-serif text-xl leading-relaxed text-foreground/90 sm:text-2xl">
           very glad I built a whole website instead of just asking normally. and very, very glad
           it was you on the other end of it.
         </p>
         <p className="mt-6 text-sm text-muted-foreground">
-          I&apos;ll take it from here. — {proposal.him}
+          I&apos;ll take it from here. love, {proposal.him}
         </p>
         <button
           onClick={onReset}
@@ -474,10 +437,10 @@ function Think({ onReset }: { onReset: () => void }) {
         <Kicker>completely okay</Kicker>
         <h2 className="mt-6 font-serif text-5xl leading-tight sm:text-6xl">that&apos;s okay.</h2>
         <p className="mt-8 font-serif text-xl leading-relaxed text-foreground/90 sm:text-2xl">
-          I meant every word. I just wanted you to know. no pressure, no rush — whenever
+          I meant every word. I just wanted you to know. no pressure, no rush. whenever
           you&apos;re ready, or not.
         </p>
-        <p className="mt-6 text-sm text-muted-foreground">— {proposal.him}</p>
+        <p className="mt-6 text-sm text-muted-foreground">love, {proposal.him}</p>
         <button
           onClick={onReset}
           className="mt-12 text-xs text-muted-foreground underline underline-offset-4 hover:text-primary"
@@ -503,13 +466,11 @@ export default function Proposal() {
 
   return (
     <div ref={scrollRef} className="grain relative min-h-screen">
-      {/* progress line */}
       <motion.div
         style={{ scaleX: barScale, transformOrigin: "0% 50%" }}
         className="fixed left-0 right-0 top-0 z-30 h-[2px] bg-primary/70"
       />
 
-      {/* soft ambient warmth */}
       <div className="pointer-events-none fixed inset-0 z-0">
         <div className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
       </div>
@@ -526,7 +487,7 @@ export default function Proposal() {
         <TheFeeling />
         <Letter onContinue={() => setPhase("question")} />
         <footer className="pb-16 pt-4 text-center text-[11px] tracking-widest text-muted-foreground uppercase">
-          made by hand · for {proposal.her}
+          made by hand, for {proposal.her}
         </footer>
       </div>
 
