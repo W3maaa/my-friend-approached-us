@@ -96,7 +96,7 @@ function Opening({ onBegin }: { onBegin: () => void }) {
 
 function HowItStarted() {
   const steps = [
-    { n: "01", t: "I saw you.", s: "outside Naivas. you were waiting for a friend. that is the whole first step." },
+    { n: "01", t: "I saw you.", s: "outside Naivas. you were waiting for a friend." },
     {
       n: "02",
       t: "I was going to come talk to you.",
@@ -109,13 +109,13 @@ function HowItStarted() {
     },
     {
       n: "04",
-      t: "I panicked, quietly.",
-      s: "on the outside I looked normal. on the inside it was chaos, very organized chaos.",
+      t: "I got a call",
+      s: "The moment I gathered enough courage to approach you I got a call from my mom. I had to pick it.",
     },
     {
       n: "05",
-      t: "So I sent Peterson.",
-      s: "shoutout to Peterson, the real MVP who walked over on my behalf like a very underpaid ambassador.",
+      t: "Peterson to the rescue.",
+      s: "shoutout to Peterson, the real MVP who walked over on my behalf. I'd mentioned that you are cute and once he saw you started leaving he decided to help me out since I couldn't approach you because of the call.",
     },
     { n: "06", t: "And somehow, it worked.", s: "which is how you ended up here, reading this." },
   ];
@@ -148,8 +148,7 @@ function HowItStarted() {
 
       <Reveal delay={0.2}>
         <p className="mt-16 text-sm text-muted-foreground italic">
-          special thanks to Peterson, who did the approaching because I chose to freeze at the
-          worst possible moment.
+          special thanks to Peterson, for saving the day fr.
         </p>
       </Reveal>
     </Section>
@@ -207,8 +206,7 @@ function TheFeeling() {
       </Reveal>
       <Reveal delay={0.9}>
         <p className="mt-8 max-w-lg text-base text-muted-foreground sm:text-lg">
-          not in a dramatic way. more like, I like the version of me that shows up around you. I
-          didn&apos;t know I was looking for that until it was there.
+          I like the version of me that comes out when I’m around you. I didn’t even realize I was looking for that until I found it with you.
         </p>
       </Reveal>
     </Section>
@@ -234,10 +232,11 @@ function Letter({ onContinue }: { onContinue: () => void }) {
             <p>
               You already know how this whole thing started. I saw you first. I was going to come
               talk to you, and then my phone decided that was the perfect time to become important.
-              So instead of me coming over, my friend had to do it for me. Basically, I sent him in
-              as my very underpaid ambassador.
+              So instead of me coming over, my friend had to do it for me. 
             </p>
-            <p>Honestly, I am glad it happened that way. A smoother beginning probably would not have been ours.</p>
+            <p>
+              Honestly, I am glad it happened that way. A smoother beginning probably would not have been ours.
+            </p>
             <p>But here is what I actually wanted to say.</p>
             <p>
               I like you for being you. Not some perfect version of yourself or some version you
@@ -409,10 +408,10 @@ function Yes({ onReset }: { onReset: () => void }) {
         </h2>
         <p className="mt-8 font-serif text-xl leading-relaxed text-foreground/90 sm:text-2xl">
           very glad I built a whole website instead of just asking normally. and very, very glad
-          it was you on the other end of it.
+          it was you on the other end of it. I LOVE YOU MY EVA.
         </p>
         <p className="mt-6 text-sm text-muted-foreground">
-          I&apos;ll take it from here. love, {proposal.him}
+          I&apos;ll take it from here. love, {proposal.him} (your Adam)
         </p>
         <button
           onClick={onReset}
