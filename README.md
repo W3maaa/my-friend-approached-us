@@ -1,29 +1,35 @@
-# Welcome to your Lovable project
+# my-friend-approached-us
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+A [TanStack Start](https://tanstack.com/start) app built with React, TypeScript, and Tailwind CSS.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You'll need [Bun](https://bun.sh) installed.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+git clone https://github.com/W3maaa/my-friend-approached-us.git
+cd my-friend-approached-us
+bun install
+bun run dev
 ```
+
+The app will be available at `http://localhost:3000`.
+
+## Scripts
+
+- `bun run dev` — start the dev server
+- `bun run build` — production build
+- `bun run preview` — preview the production build locally
+- `bun run lint` — run ESLint
+- `bun run format` — format with Prettier
+
+## Deployment
+
+The build is powered by [Nitro](https://nitro.build), which supports many deploy targets (Node, Cloudflare Workers, Vercel, and more). Set your target preset in `vite.config.ts` — see the [Nitro deploy docs](https://nitro.build/deploy) for the full list.
 
 ## Built with
 
-- TanStack Start
+- [TanStack Start](https://tanstack.com/start)
 - TypeScript
 - React
 - Tailwind CSS
